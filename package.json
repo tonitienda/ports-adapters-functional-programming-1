@@ -1,0 +1,19 @@
+{
+  "name": "ports-adapters-functional-programming",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonitienda/ports-adapters-functional-programming-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tonitienda/ports-adapters-functional-programming-1/issues"
+  },
+  "homepage": "https://github.com/tonitienda/ports-adapters-functional-programming-1#readme"
+}
