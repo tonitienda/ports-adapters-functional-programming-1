@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/tonitienda/ports-adapters-functional-programming-1/issues"
   },
-  "homepage": "https://github.com/tonitienda/ports-adapters-functional-programming-1#readme"
+  "homepage": "https://github.com/tonitienda/ports-adapters-functional-programming-1#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
 }
