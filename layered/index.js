@@ -6,7 +6,7 @@ app.post('registerUser', (req, res) => {
     
 });
 
-app.get('confirmUser', (req, res) => {
+app.post('confirmUser', (req, res) => {
 
 });
 
