@@ -11,11 +11,16 @@ module.exports = class UserService {
             throw new Error('The user cannot be null.');
         }
 
-        // Perform the rest of validations like username already exists, 
-        // password is strong enough, etc.
-        userData.state = 'PENDING';
+        validateUserName(userData.userName);
+        validatePassword(userData.password);
 
-        const newUser = await this.repository.save(userData);
+        const user = {
+            userName: userData.userName,
+            password: userData.password,
+            state: 'PENDING'
+        };
+
+        const newUser = await this.repository.save(user);
         this.eventAdapter.publish('user.registered', newUser);
         return newUser;
     }
@@ -25,11 +30,19 @@ module.exports = class UserService {
             throw new Error('The user cannot be null.');
         }
 
-        // Perform the rest of validations
-        userData.state = 'CONFIRMED';
+        let user = this.repository.getByNameAndPassword(userData.userName, userData.password);
+        user.state = 'CONFIRMED';
 
-        await this.repository.save(userData);
-        this.eventAdapter.publish('user.confirmed', userData);
-        return userData;
+        await this.repository.save(user);
+        this.eventAdapter.publish('user.confirmed', user);
+        return user;
     }
+}
+
+function validatePassword(password) {
+    // Validate length, strength, etc
+}
+
+function validateUserName(userName) {
+    // validate length, format, etc.
 }
